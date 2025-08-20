@@ -50,6 +50,7 @@ src/
 tests/
   UniverseTest.php
 composer.json
+phpunit.xml
 README.md
 ```
 
