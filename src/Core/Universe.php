@@ -20,7 +20,6 @@ final class Universe
     {
         $this->live = [];
         foreach ($seed as $pair) {
-
             if (!is_array($pair) || count($pair) !== 2) {
                 throw new InvalidArgumentException('Seed must be list of [x,y] integer pairs.');
             }
@@ -43,7 +42,6 @@ final class Universe
     {
         $out = [];
         foreach (array_keys($this->live) as $key) {
-
             [$x, $y] = array_map('intval', explode(':', $key));
             $out[] = [$x, $y];
         }
@@ -55,14 +53,12 @@ final class Universe
         $counts = [];
         // Count neighbors
         foreach ($this->live as $key => $_true) {
-
             [$x, $y] = array_map('intval', explode(':', $key));
             $c = new Coordinates($x, $y);
             // ensure current live cell is in counts with 0 (for survival check)
             $counts[$key] = $counts[$key] ?? 0;
 
             foreach ($c->neighbors() as $n) {
-
                 $nk = $n->key();
                 $counts[$nk] = ($counts[$nk] ?? 0) + 1;
             }
@@ -71,8 +67,8 @@ final class Universe
         $next = [];
         // Rules implementation
         foreach ($counts as $key => $count) {
-
             $alive = isset($this->live[$key]);
+
             if ($alive) {
                 if ($count === 2 || $count === 3) {
                     $next[$key] = true;

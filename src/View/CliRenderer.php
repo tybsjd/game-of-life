@@ -25,17 +25,16 @@ final class CliRenderer
         $h = $board->height();
         $u = $board->universe();
 
-        $lines = [];
+        $columns = [];
         for ($y = 0; $y < $h; $y++) {
-
             $row = '';
-            for ($x = 0; $x < $w; $x++) {
 
+            for ($x = 0; $x < $w; $x++) {
                 $cellAlive = $u->isAlive($originX + $x, $originY + $y);
                 $row .= $cellAlive ? $this->aliveChar : $this->deadChar;
             }
-            $lines[] = $row;
+            $columns[] = $row;
         }
-        echo implode(PHP_EOL, $lines), PHP_EOL;
+        echo implode(PHP_EOL, $columns), PHP_EOL;
     }
 }

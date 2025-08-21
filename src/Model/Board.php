@@ -29,6 +29,7 @@ final class Board
     public function width(): int {
         return $this->width;
     }
+
     public function height(): int {
         return $this->height;
     }

@@ -26,7 +26,6 @@ final class GameController
         }
 
         for ($g = 1; $g <= $generations; $g++) {
-
             $this->renderer->clearScreen();
             echo "Generation {$g}", PHP_EOL;
             $this->renderer->render($this->board, $originX, $originY);
